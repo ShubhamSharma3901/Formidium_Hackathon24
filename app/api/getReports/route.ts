@@ -3,14 +3,16 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
 	const { params } = await req.json();
+	const st = "hello";
+	st.toUpperCase();
 	try {
 		const response = await axios.post(
 			`http://ec2-13-201-50-154.ap-south-1.compute.amazonaws.com:8080/get-report-url`,
 			{
-				reportType: params.reportType,
+				reportType: params.reportType.toUpperCase(),
 				year: params.year,
-				period: params.period,
-				format: params.format,
+				period: params.period.toUpperCase(),
+				format: params.format.toLowerCase(),
 			}
 		);
 		console.log("response===", response.data);
