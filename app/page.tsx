@@ -9,10 +9,9 @@ import MobNav from "@/components/MobNav";
 export default async function Home() {
 	const session = await auth();
 
-	if (!session?.user?.id) {
+	if (process.env.NODE_ENV === "development" && !session?.user?.id) {
 		redirect(`${process.env.NEXT_PUBLIC_APP_URL}/api/auth/signin`);
 	}
-	console.log(session.user);
 	return (
 		<div
 			style={{
@@ -28,10 +27,10 @@ export default async function Home() {
 
 			<div className='w-full absolute top-[2rem] z-[200]'>
 				<div className='xsPhone:hidden smTablet:block bg-transparent text-white relative'>
-					<NavBar userId={session.user.id as string} />
+					<NavBar userId={session?.user?.id as string} />
 				</div>
 				<div className='smTablet:hidden xsPhone:block bg-transparent text-white relative z-[400]'>
-					<MobNav userId={session.user.id as string} />
+					<MobNav userId={session?.user?.id as string} />
 				</div>
 			</div>
 			<div className='w-full flex flex-col justify-center items-center '>
