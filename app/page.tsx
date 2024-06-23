@@ -4,7 +4,6 @@ import headerSVG from "@/public/Header Wave.svg";
 import InputBox from "@/components/InputBox";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import Chatbot from "@/components/ChatBot";
 import NavBar from "@/components/NavBar";
 import MobNav from "@/components/MobNav";
 export default async function Home() {
@@ -26,9 +25,7 @@ export default async function Home() {
 				alt=''
 				className='w-full h-auto absolute bottom-0'
 			/>
-			{/* <p className='font-poppins text-white text-[min(5vh,5vw)] font-bold tracking-wide'>
-				AI Report Delivery
-			</p> */}
+
 			<div className='w-full absolute top-[2rem] z-[200]'>
 				<div className='xsPhone:hidden smTablet:block bg-transparent text-white relative'>
 					<NavBar userId={session.user.id as string} />
@@ -40,7 +37,6 @@ export default async function Home() {
 			<div className='w-full flex flex-col justify-center items-center '>
 				<div className='w-full flex justify-center items-center'>
 					<InputBox />
-					{/* <Chatbot /> */}
 				</div>
 			</div>
 		</div>
