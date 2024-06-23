@@ -81,7 +81,6 @@ export const {
 	pages: {
 		signIn: `/users/sign-in`,
 		verifyRequest: `/users/verify`,
-		error: `/users/error`,
 		signOut: `/users/sign-out`,
 	},
 });
